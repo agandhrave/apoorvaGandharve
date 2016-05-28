@@ -1,0 +1,31 @@
+
+<div id="maincont">
+  <div id="cases">
+  <ul>
+<li ng-repeat="box in boxes" ng-click="box_chose(box)"><div class="case1">{{box}}</div></li>
+</ul>
+</div>
+</div>
+<footer>
+      	   <div id="player_name"><h1>{{playerName}}</h1></div>
+      	  
+      	   <div id="rounds">
+               <div id="your_case">
+               <div class="case_info">
+               	  <p id="your">Your</p>
+               	  <p id="case">Case</p>
+               	  </div>
+               	  <div id="case_img" ng-show="playerCase">{{playerBox}}</div>
+               </div>
+               <div id="selected">
+                  <p id="select_a_case">Select A Case</p>
+                  <!-- <span id="btnimg"><img src="assets/images/moneybtn.png" alt="money" ng-click="show_board()"></span> -->
+               </div>
+      	   </div>
+      	   <div id="clear"></div>
+      </footer>
+<style type="text/css">
+	li{
+		cursor: pointer;
+	}
+</style>
