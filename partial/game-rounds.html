@@ -1,157 +1,49 @@
-<!-- <ul >
-<li ng-repeat="box in boxes" ng-click="box_chose(box)">{{box}}</li>
-</ul> -->
 <header>
-	      	 	<img src="assets/images/titleTop.png" alt="logo">
-	 </header>
+    <img src="assets/images/titleTop.png" alt="logo">
+</header>
 <div id="maincont">
-  <div id="cases" ng-hide="caseOp">
-  <ul>
-<li ng-repeat="box in boxes" ng-click="box_chose(box)"><div class="case1">{{box}}</div></li>
-</ul>
-</div>
-<div id="money_board" ng-hide="custom">
-     <div id="rupee" ng-repeat="m in money_list_left" 
-     ng-class="{rupee_disabled: $index === selectedIndexLeft[$index]}">
-   	   <img id="inr" src="assets/images/inr.png">
-   	   <span id="money">{{m}}</span>
-     </div>
-     <!-- <div id="rupee">
-   	   <img id="inr" src="assets/images/inr.png">
-   	   <span id="money">2</span>
-     </div>
-     <div id="rupee">
-   	   <img id="inr" src="assets/images/inr.png">
-   	   <span id="money">5</span>
-     </div>
-     <div id="rupee">
-   	   <img id="inr" src="assets/images/inr.png">
-   	   <span id="money">10</span>
-     </div>
-     <div id="rupee">
-   	   <img id="inr" src="assets/images/inr.png">
-   	   <span id="money">25</span>
-     </div>
-     <div id="rupee">
-   	   <img id="inr" src="assets/images/inr.png">
-   	   <span id="money">50</span>
-     </div>
-     <div id="rupee">
-   	   <img id="inr" src="assets/images/inr.png">
-   	   <span id="money">75</span>
-     </div>
-     <div id="rupee">
-   	   <img id="inr" src="assets/images/inr.png">
-   	   <span id="money">100</span>
-     </div>
-     <div id="rupee">
-   	   <img id="inr" src="assets/images/inr.png">
-   	   <span id="money">200</span>
-     </div>
-     <div id="rupee">
-   	   <img id="inr" src="assets/images/inr.png">
-   	   <span id="money">300</span>
-     </div> <div id="rupee">
-   	   <img id="inr" src="assets/images/inr.png">
-   	   <span id="money">400</span>
-     </div> <div id="rupee">
-   	   <img id="inr" src="assets/images/inr.png">
-   	   <span id="money">500</span>
-     </div> <div id="rupee">
-   	   <img id="inr" src="assets/images/inr.png">
-   	   <span id="money">750</span>
-     </div> -->
-   </div>
-      
-
+    <div id="cases" ng-hide="caseOp">
+        <ul>
+            <li ng-repeat="box in boxes" class="fade" ng-click="box_chose(box)">
+                <div class="case1">{{box}}</div>
+            </li>
+        </ul>
+    </div>
+    <div id="money_board" ng-hide="custom">
+        <div id="rupee" ng-repeat="m in money_list_left" ng-class="{rupee_disabled: $index === selectedIndexLeft[$index]}">
+            <img id="inr" src="assets/images/inr.png">
+            <span id="money">{{m}}</span>
+        </div>
+    </div>
     <div id="money_board_2" ng-hide="custom">
-     <div id="rupee" ng-repeat="m in money_list_right"
-      ng-class="{rupee_disabled: $index == selectedIndexRight[$index]}">
-   	   <img id="inr" src="assets/images/inr.png">
-   	   <span id="money">{{m | number:0}}</span>
-     </div>
-     <!-- <div id="rupee">
-   	   <img id="inr" src="assets/images/inr.png">
-   	   <span id="money">5,000</span>
-     </div>
-     <div id="rupee">
-   	   <img id="inr" src="assets/images/inr.png">
-   	   <span id="money">10,000</span>
-     </div>
-     <div id="rupee">
-   	   <img id="inr" src="assets/images/inr.png">
-   	   <span id="money">25,000</span>
-     </div>
-     <div id="rupee">
-   	   <img id="inr" src="assets/images/inr.png">
-   	   <span id="money">50,000</span>
-     </div>
-     <div id="rupee">
-   	   <img id="inr" src="assets/images/inr.png">
-   	   <span id="money">75,000</span>
-     </div>
-     <div id="rupee">
-   	   <img id="inr" src="assets/images/inr.png">
-   	   <span id="money">100,000</span>
-     </div>
-     <div id="rupee">
-   	   <img id="inr" src="assets/images/inr.png">
-   	   <span id="money">200,000</span>
-     </div>
-     <div id="rupee">
-   	   <img id="inr" src="assets/images/inr.png">
-   	   <span id="money">300,000</span>
-     </div>
-     <div id="rupee">
-   	   <img id="inr" src="assets/images/inr.png">
-   	   <span id="money">400,000</span>
-     </div> <div id="rupee">
-   	   <img id="inr" src="assets/images/inr.png">
-   	   <span id="money">500,000</span>
-     </div> <div id="rupee">
-   	   <img id="inr" src="assets/images/inr.png">
-   	   <span id="money">750,000</span>
-     </div> <div id="rupee">
-   	   <img id="inr" src="assets/images/inr.png">
-   	   <span id="money">1,000,000</span>
-     </div> -->
-   </div>
-   <div class="case-open case1"  ng-class="{case_open_status:case_opened}" ng-show="caseOp">
-   <div>
-   <img src="assets/images/inr_case_open_status.png" ng-show="case_opened" 
-   class="rupee-image"><span style="display: inline-block;">{{box_opened}}</span>
-   </div>
-   </div>
-<!-- </div>
-<h1>Your name is {{playerName}} and you Choose Box No.: {{playerBox}}</h1>
-<h1>Total Pot Value {{totalPot}}</h1>
-<h1>Round : {{round}} </h1>
-<h1>{{turnsLeft}} cases to be selected</h1> -->
-<footer>
-      	   <div id="player_name"><h1>{{playerName}}</h1></div>
-      	  
-      	   <div id="rounds">
-               <div id="your_case">
-               <div class="case_info">
-               	  <p id="your">Your</p>
-               	  <p id="case">Case</p>
-               	  </div>
-               	  <div id="case_img" ng-show="playerCase">{{playerBox}}</div>
-               </div>
-               <div id="selected">
-               		<h3>Round - {{round}}</h3>
-               		<h4>{{turnsLeft}} cases to be selected</h4>
+        <div id="rupee" ng-repeat="m in money_list_right" ng-class="{rupee_disabled: $index == selectedIndexRight[$index]}">
+            <img id="inr" src="assets/images/inr.png">
+            <span id="money">{{m | number:0}}</span>
+        </div>
+    </div>
+    <div class="case-open case1 ng-enter" ng-class="{case_open_status:case_opened}" ng-show="caseOp">
+        <div>
+            <img src="assets/images/inr_case_open_status.png" ng-show="case_opened" class="rupee-image">{{box_opened}}
+        </div>
+    </div>
+    <footer>
+        <div id="player_name">
+            <h1>{{playerName}}</h1>
+        </div>
 
-               </div>
-               <span id="btnimg"><img src="assets/images/moneybtn.png" alt="money" ng-click="show_board()">
+        <div id="rounds">
+            <div id="your_case">
+                <div class="case_info">
+                    <p id="your">Your</p>
+                    <p id="case">Case</p>
+                </div>
+                <div id="case_img">{{playerBox}}</div>
+            </div>
+            <div id="selected">
+                <h3>Round - {{round}}</h3>
+                <h4>{{turnsLeft}} cases to be selected</h4>
+            </div>
+            <span id="btnimg"><img src="assets/images/moneybtn.png" alt="money" ng-click="show_board()">
       	   </div>
       	   <div id="clear"></div>
       </footer>
-<!-- <label  ng-repeat="box in boxes | filter:'!'+chosen">{{box}}</label> -->
-<style type="text/css">
-	li{
-		cursor: pointer;
-		display: inline;
-		   /*padding: 0 10px;*/
-	}
-</style>
