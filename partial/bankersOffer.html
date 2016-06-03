@@ -1,27 +1,23 @@
 <header>
-	      	 	<img src="assets/images/titleTop.png" alt="logo">
-	 </header>
-	 <div class="bankOffer" ng-hide="swapQuestion">
-		<h2>Banker's Offer</h2>
-		<div class="rupee">
-			<img src="assets/images/inr.png" alt="rupaiya">
-			<span>{{offer}}</span>
-		</div>
-		<button class="takeDeal"><img src="assets/images/dealBtn.png" alt="deal" ng-click="deal()">
-		</button>
-		<button ng-click="nodeal()" class="noDeal"><img src="assets/images/noDealBtn.png" alt="noDeal">
-		</button>
-	</div>
-	<div class="swapQues" ng-show="swapQuestion">
-	<h1>SWAP?</h1>
-	<div class="case1 swap-case" ng-click="swap_question_answer(playerBox)" ng-bind="playerBox">
-	{{playerBox}}
-	</div>
-	<div class="case1 swap-case" ng-click="swap_question_answer(swapBox)">
-	{{swapBox}}
-	</div>
-	</div>
-
-<style type="text/css">
-
-</style>
+    <img src="assets/images/titleTop.png" alt="logo">
+</header>
+<div class="bankOffer" ng-hide="swapQuestion">
+    <h2>Banker's Offer</h2>
+    <div class="rupee">
+        <img src="assets/images/inr.png" alt="rupaiya">
+        <span>{{offer}}</span>
+    </div>
+    <button class="takeDeal" ng-click="deal()"><img src="assets/images/dealBtn.png" alt="deal">
+    </button>
+    <button ng-click="nodeal()" class="noDeal"><img src="assets/images/noDealBtn.png" alt="noDeal">
+    </button>
+</div>
+<div class="swapQues" ng-show="swapQuestion">
+    <h1>SWAP?</h1>
+    <div class="case1 swap-case" ng-click="swap_question_answer(playerBox)" ng-bind="playerBox">
+        {{playerBox}}
+    </div>
+    <div class="case1 swap-case" ng-click="swap_question_answer(swapBox)">
+        {{swapBox}}
+    </div>
+</div>
