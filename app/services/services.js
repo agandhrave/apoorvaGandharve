@@ -6,17 +6,15 @@ app.factory('gamePlay',function($http, $q){
 	Game.player = {};
 
 	///money
-	
-	Game.money_list = [];
-    Game.selectedIndexRight = [];
-	Game.selectedIndexLeft = [];
-
+	Game.money = [];
+	Game.moneyList = [];
 	Game.rounds = [];
 	Game.currentRound = 0;
 	Game.turnsLeftInCurrentRound = 0;
 	Game.boxes = [];
 
 	Game.finalWinnings = 0;
+	Game.finalPossibleLoss = 0;
 	Game.totalPot = 0;
 	//to keep track of shuffled money
 	Game.moneyRandom = [];
@@ -26,9 +24,8 @@ app.factory('gamePlay',function($http, $q){
 	var get = function(){
 		var deferred = $q.defer();
 		promise.then(function(response){
-			console.log(response.data)
 			deferred.resolve({
-				money_list:response.data.money_list,
+				money_list:response.data.money,
 				rounds:response.data.rounds,
 				boxes:response.data.boxes
 			});
@@ -43,9 +40,19 @@ app.factory('gamePlay',function($http, $q){
 			Game.boxes = data.boxes;
 			Game.money_list = data.money_list;
 			Game.rounds = data.rounds;
-			console.log(Game.rounds[0].turn);
+			Game.moneyList = Game.getMoneyList();
 		})
+		
 	};
+
+	//Money
+	Game.getMoneyList = function(){
+		var money = [];
+		angular.forEach(Game.money_list,function(i,v){
+			money.push(i.money);
+		});
+		return money;
+	}
 
 	//Set valid Game as true
 	Game.startNewGame = function(playerName){
@@ -81,18 +88,9 @@ app.factory('gamePlay',function($http, $q){
 	Game.getPlayerBox = function(){
 		return Game.player.playerBox;
 	}
-
-	Game.fetchSelectedIndexLeft = function(){
-		return Game.selectedIndexLeft;
-	}
-	Game.fetchSelectedIndexRight = function(){
-		return Game.selectedIndexRight;
-	}
-
 	//control rounds
 	Game.startNextRound = function(){
 		//increase current round value
-		console.log('startNextRound');
 		Game.currentRound++;
 		Game.turnsLeftInCurrentRound = Game.rounds[Game.currentRound-1].turn;
 		// Return Current Value
@@ -104,33 +102,35 @@ app.factory('gamePlay',function($http, $q){
 		return Game.turnsLeftInCurrentRound;
 	}
 
-	Game.fetchMoney = function(){
-		return angular.copy(Game.money_list);
-	}
-	
 	//set winnings
 	Game.setWinnings = function(amount){
 		Game.finalWinnings = amount;
-		console.log("Service"+ Game.finalWinnings);
 	}
 
 	Game.getWinnings = function(){
 		return Game.finalWinnings;
 	}
+
+	//set losses
+	Game.setLosses = function(amount){
+		Game.finalPossibleLoss = amount;
+	}
+
+	//get losses
+	Game.getLosses = function(amount){
+		console.log(Game.finalPossibleLoss);
+		return Game.finalPossibleLoss;
+	}
+
 	//banker's offer
 	Game.bankersOffer = function(){
 		var balance = 3418418 - Game.totalPot;
-		console.log("balance ", Game.totalpot, balance);
 		return Math.floor(Math.round(balance*(Game.currentRound+1)/100));
 	}
 
 	Game.fetchMoneyBoxIndex = function(box){
 		var value = Game.fetchBoxValue(box);
-		var index = Game.money_list.indexOf(value);
-		if(index>=13)
-			Game.selectedIndexRight[index-13]=index-13;
-		else
-			Game.selectedIndexLeft[index]=index;
+		var index = Game.moneyList.indexOf(value);
 		return index;
 	}
 
@@ -143,8 +143,8 @@ app.factory('gamePlay',function($http, $q){
 	//new box choosen
 	Game.newBoxChosen = function(box){
 		Game.totalPot += Game.moneyRandom[box-1];
-		console.log("totalpot"+typeof Game.totalPot);
 		// Game.money_list[]
+		Game.money_list[Game.fetchMoneyBoxIndex(box)].selected = true;
 		Game.boxes[box-1].selected = true;
 		Game.turnsLeftInCurrentRound--;
 	}
@@ -156,7 +156,7 @@ app.factory('gamePlay',function($http, $q){
 
 	//shuffle money
 	var shuffleMoney = function(){
-		Game.moneyRandom = Game.shuffleArray(angular.copy(Game.money_list));
+		Game.moneyRandom = Game.shuffleArray(angular.copy(Game.moneyList));
 	}
 	//Fisher–Yates Shuffle
 	Game.shuffleArray = function(array){
