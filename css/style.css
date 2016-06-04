@@ -1,9 +1,13 @@
- 
+ li{
+        cursor: pointer;
+    }
 		
 .clearfix{
     clear: both;
 }
 body{
+   /*Changed*/
+    width:100%;
 	margin:0 auto;
     background-image:url("../assets/images/bg.png");
     background-repeat: no-repeat;
@@ -33,11 +37,15 @@ header img{
     border:0;
     padding: 0;
     display: block;
+    cursor: pointer;
     margin: 0 auto;
 }
-/*header img {
-	   //display:none;
-}*/
+.invalid{
+    margin: 0 auto;
+    font-size: 30px;
+    text-align: center;
+    color: maroon;
+}
 #main {
 	padding: 18.5% 10%;
      
@@ -61,10 +69,9 @@ header img{
 	 min-height:430px;
 }
 #cases{
-    width: 83%;
+    width: 73%;
     margin: 0 auto;
-    //min-height: 400px;
-    position:relative;
+   // position:relative;
 }
 #cases ul li{
     display: inline;
@@ -72,22 +79,23 @@ header img{
     text-align: center;
     vertical-align: middle;
 }
-#case11 {
+/*changed*/
+#cases ul li:first-child {
     margin: 15px 10px 15px 76px;
-
 }
-#case21 {
+#cases ul li:nth-child(21){
     margin: 15px 10px 15px 76px;
-
 }
+
 .case1 {
     background: url("../assets/images/case.png") no-repeat;
     background-size: 100% 100%;
    
     display: inline-block;
-    width:11.5%;
+    /*changed*/
+    width:10.5%;
     padding: 2% 0;
-    margin: 15px 10px 15px 10px;
+    margin: 10px;
  }
 footer{
  	position: fixed;
@@ -169,11 +177,11 @@ footer{
   from { width: 0; }
   to {width: 500px;} 
 } 
-#select_a_case {
+.caseselected {
     margin: 20px;
   overflow: hidden;
   white-space:nowrap;
-  animation: type 2s steps(600, end); 
+  animation: type 2s steps(100, end); 
 	color: white;
     font-size: 45px;
         /*width: 61%;*/
@@ -230,7 +238,7 @@ footer{
     background:url('../assets/images/final_LabelBg.png') no-repeat;
     background-size: 500px;
     width: 50%;
-    padding: 17% 0;
+    padding: 8% 0;
     margin: 50px auto;
 }
 .winnings h4{
@@ -324,4 +332,43 @@ padding: 100px 0;
     font-size: 75px;
     text-align: center;
     cursor: pointer;
+}
+    li{
+        cursor: pointer;
+        display: inline;
+           /*padding: 0 10px;*/
+    }
+.text-center {
+  text-align: center;
+}
+li span {
+  float: right;
+  cursor: pointer;
+}
+
+.fade {
+  transition: 1s linear all;
+  -webkit-transition: 1s linear all;
+}
+
+.fade.ng-enter {
+  opacity: 0;
+}
+
+.fade.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+.fade.ng-leave {
+  opacity: 1;
+}
+
+.fade.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
