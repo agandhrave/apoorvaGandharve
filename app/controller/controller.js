@@ -1,7 +1,7 @@
 app.controller('homeController', function($scope, $location, gamePlay) {
     $scope.play = function() {
         //start a New Game
-        gamePlay.startNewGame($scope.player);
+        gamePlay.startNewGame($scope.name);
         $location.path('/game/landing');
     }
 });
@@ -21,7 +21,7 @@ app.controller('landingController', function($scope, $location, $timeout, gamePl
         $scope.playerBox = box;
         $timeout(function() {
             $location.path('/game/rounds');
-        }, 3500);
+        }, 2000);
     }
     init();
 });
@@ -30,16 +30,10 @@ app.controller('roundController', function($scope, $location, $animate, $timeout
     var init = function() {
         gamePlay.isValidGame();
         $scope.custom = true;
-        console.log($animate);
-        $scope.selectedIndexRight = gamePlay.fetchSelectedIndexRight();
-        $scope.selectedIndexLeft = gamePlay.fetchSelectedIndexLeft();
         $scope.playerBox = gamePlay.getPlayerBox();
         $scope.playerName = gamePlay.getPlayerName();
-        gamePlay.startNextRound();
-        $scope.round = gamePlay.getCurrentRound();
+        $scope.round = gamePlay.startNextRound();
         populate_values();
-        $scope.money_list_left = gamePlay.fetchMoney().splice(0, 13);
-        $scope.money_list_right = gamePlay.fetchMoney().splice(13, 13);
         $scope.turnsLeft = gamePlay.fetchTurnsLeft();
     }
 
@@ -48,6 +42,8 @@ app.controller('roundController', function($scope, $location, $animate, $timeout
     }
 
     function populate_values() {
+        $scope.money_list_left = angular.copy(gamePlay.money_list).splice(0, 13);
+        $scope.money_list_right = angular.copy(gamePlay.money_list).splice(13, 13);
         $scope.boxes = gamePlay.fetchValidBoxes();
         $scope.turnsLeft--;
         if (($scope.turnsLeft) === 0) {
@@ -68,11 +64,6 @@ app.controller('roundController', function($scope, $location, $animate, $timeout
             $scope.case_opened = false;
             $scope.caseOp = false;
             populate_values();
-            var selectedIndex = gamePlay.fetchMoneyBoxIndex(box);
-            if (selectedIndex >= 13)
-                $scope.selectedIndexRight[selectedIndex - 13] = selectedIndex - 13;
-            else
-                $scope.selectedIndexLeft[selectedIndex] = selectedIndex;
         }, 2000);
         gamePlay.newBoxChosen(box);
     }
@@ -82,12 +73,10 @@ app.controller('roundController', function($scope, $location, $animate, $timeout
 app.controller('bankerController', function($scope, $location, $timeout, gamePlay) {
     var init = function() {
         gamePlay.isValidGame();
-        $scope.totalPot = gamePlay.totalPot;
         $scope.offer = gamePlay.bankersOffer();
     }
     $scope.deal = function() {
         gamePlay.setWinnings($scope.offer);
-        console.log("console" + $scope.offer);
         $location.path('/game/winnings');
     }
     $scope.nodeal = function() {
@@ -103,51 +92,21 @@ app.controller('bankerController', function($scope, $location, $timeout, gamePla
         $scope.playerBox = gamePlay.getPlayerBox();
         $scope.swapQuestion = true;
     }
-    $scope.swap_question_answer = function(e) {
-        var finalBox = e;
+    $scope.swap_question_answer = function(finalBox,lostBox) {
         gamePlay.setWinnings(gamePlay.fetchBoxValue(finalBox));
+        gamePlay.setLosses(gamePlay.fetchBoxValue(lostBox));
+        
         $location.path('/game/winnings');
     }
     init();
 });
+
 app.controller('winController', function($scope, gamePlay) {
     var init = function() {
-        // gamePlay.isValidGame();
+        gamePlay.isValidGame();
         $scope.playerName = gamePlay.getPlayerName();
         $scope.winnings = gamePlay.getWinnings();
+        $scope.losses = gamePlay.getLosses();
     }
     init();
-});
-
-app.directive('enableAnimating', function($animate) {
-    return {
-        link: function(scope, element, attrs) {
-            scope.$watch('bottomMessage', function(newVal, oldVal) {
-                console.log("watcher called");
-                if (newVal != oldVal) {
-                    //start the animation!
-                    console.log('counter changed', element);
-                    // $animate.setClass(element,'caseselected');
-                    $animate.removeClass(element, 'caseselected', function() {
-                        $animate.addClass(element, 'caseselected')
-                    });
-                    // $animate.addClass(element,'pulsate',function() {$animate.removeClass(element, 'pulsate')});
-                }
-            })
-        }
-    }
-});
-
-app.animation('.caseselected', function() {
-    return {
-        removeClass: function(element, className, done) {
-            console.log('in');
-        },
-        addClass: function(element, className, done) {
-            console.log('in');
-        },
-        setClass: function(element, className, done) {
-
-        }
-    }
 });
