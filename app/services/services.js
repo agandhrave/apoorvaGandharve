@@ -1,4 +1,4 @@
-app.factory('gamePlay',function(){
+app.factory('gamePlay',function($http, $q){
 	
 
 	var Game= {};
@@ -7,23 +7,11 @@ app.factory('gamePlay',function(){
 
 	///money
 	
-	Game.money_list = [1, 2, 5, 10, 25, 50, 75, 100, 200, 300, 400 , 500, 750, 1000, 5000, 10000,
-	25000, 50000, 75000, 100000, 200000, 300000, 400000, 500000, 750000, 1000000 ];
+	Game.money_list = [];
+    Game.selectedIndexRight = [];
+	Game.selectedIndexLeft = [];
 
-    Game.selectedIndexRight = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1];
-	Game.selectedIndexLeft = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1];
-
-	Game.rounds = [{round:1,turn:6},
-	{round:2,turn:5},
-	{round:3,turn:4},
-	{round:4,turn:3},
-	{round:5,turn:2},
-	{round:6,turn:1},
-	{round:7,turn:1},
-	{round:8,turn:1},
-	{round:9,turn:1}];
-
-
+	Game.rounds = [];
 	Game.currentRound = 0;
 	Game.turnsLeftInCurrentRound = 0;
 	Game.boxes = [];
@@ -32,36 +20,31 @@ app.factory('gamePlay',function(){
 	Game.totalPot = 0;
 	//to keep track of shuffled money
 	Game.moneyRandom = [];
-
+	
+	//json call
+	var promise = $http.get('app/data.json');
+	var get = function(){
+		var deferred = $q.defer();
+		promise.then(function(response){
+			console.log(response.data)
+			deferred.resolve({
+				money_list:response.data.money_list,
+				rounds:response.data.rounds,
+				boxes:response.data.boxes
+			});
+		});
+		return deferred.promise;
+	}
+	//Initialization
 	init = function(){
 		Game.player.playerBox = null;
 		Game.validGame = false;
-		Game.boxes = [{id:1,"selected":false},
-	{id:2,"selected":false},
-	{id:3,"selected":false},
-	{id:4,"selected":false},
-	{id:5,"selected":false},
-	{id:6,"selected":false},
-	{id:7,"selected":false},
-	{id:8,"selected":false},
-	{id:9,"selected":false},
-	{id:10,"selected":false},
-	{id:11,"selected":false},
-	{id:12,"selected":false},
-	{id:13,"selected":false},
-	{id:14,"selected":false},
-	{id:15,"selected":false},
-	{id:16,"selected":false},
-	{id:17,"selected":false},
-	{id:18,"selected":false},
-	{id:19,"selected":false},
-	{id:20,"selected":false},
-	{id:21,"selected":false},
-	{id:22,"selected":false},
-	{id:23,"selected":false},
-	{id:24,"selected":false},
-	{id:25,"selected":false},
-	{id:26,"selected":false}];
+		get().then(function(data){
+			Game.boxes = data.boxes;
+			Game.money_list = data.money_list;
+			Game.rounds = data.rounds;
+			console.log(Game.rounds[0].turn);
+		})
 	};
 
 	//Set valid Game as true
@@ -112,10 +95,7 @@ app.factory('gamePlay',function(){
 		console.log('startNextRound');
 		Game.currentRound++;
 		Game.turnsLeftInCurrentRound = Game.rounds[Game.currentRound-1].turn;
-	}
-	
-	//return Current Round Value
-	Game.getCurrentRound = function(){
+		// Return Current Value
 		return Game.currentRound;
 	}
 
