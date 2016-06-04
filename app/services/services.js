@@ -90,7 +90,6 @@ app.factory('gamePlay',function($http, $q){
 	//control rounds
 	Game.startNextRound = function(){
 		//increase current round value
-		console.log('startNextRound');
 		Game.currentRound++;
 		Game.turnsLeftInCurrentRound = Game.rounds[Game.currentRound-1].turn;
 		// Return Current Value
@@ -109,7 +108,6 @@ app.factory('gamePlay',function($http, $q){
 	//set winnings
 	Game.setWinnings = function(amount){
 		Game.finalWinnings = amount;
-		console.log("Service"+ Game.finalWinnings);
 	}
 
 	Game.getWinnings = function(){
@@ -118,7 +116,6 @@ app.factory('gamePlay',function($http, $q){
 	//banker's offer
 	Game.bankersOffer = function(){
 		var balance = 3418418 - Game.totalPot;
-		console.log("balance ", Game.totalpot, balance);
 		return Math.floor(Math.round(balance*(Game.currentRound+1)/100));
 	}
 
@@ -137,10 +134,8 @@ app.factory('gamePlay',function($http, $q){
 	//new box choosen
 	Game.newBoxChosen = function(box){
 		Game.totalPot += Game.moneyRandom[box-1];
-		console.log("totalpot"+typeof Game.totalPot);
 		// Game.money_list[]
 		Game.money_list[Game.fetchMoneyBoxIndex(box)].selected = true;
-		console.log(Game.fetchMoneyBoxIndex(box),Game.money_list);
 		Game.boxes[box-1].selected = true;
 		Game.turnsLeftInCurrentRound--;
 	}
