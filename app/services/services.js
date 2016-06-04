@@ -14,6 +14,7 @@ app.factory('gamePlay',function($http, $q){
 	Game.boxes = [];
 
 	Game.finalWinnings = 0;
+	Game.finalPossibleLoss = 0;
 	Game.totalPot = 0;
 	//to keep track of shuffled money
 	Game.moneyRandom = [];
@@ -101,10 +102,6 @@ app.factory('gamePlay',function($http, $q){
 		return Game.turnsLeftInCurrentRound;
 	}
 
-	// Game.fetchMoney = function(){
-	// 	return getMoneyList();
-	// }
-	
 	//set winnings
 	Game.setWinnings = function(amount){
 		Game.finalWinnings = amount;
@@ -113,6 +110,18 @@ app.factory('gamePlay',function($http, $q){
 	Game.getWinnings = function(){
 		return Game.finalWinnings;
 	}
+
+	//set losses
+	Game.setLosses = function(amount){
+		Game.finalPossibleLoss = amount;
+	}
+
+	//get losses
+	Game.getLosses = function(amount){
+		console.log(Game.finalPossibleLoss);
+		return Game.finalPossibleLoss;
+	}
+
 	//banker's offer
 	Game.bankersOffer = function(){
 		var balance = 3418418 - Game.totalPot;
