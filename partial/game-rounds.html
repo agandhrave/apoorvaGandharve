@@ -1,6 +1,3 @@
-<header>
-    <img src="assets/images/titleTop.png" alt="logo">
-</header>
 <div id="maincont">
     <div id="cases" ng-hide="caseOp">
         <ul>
@@ -10,15 +7,15 @@
         </ul>
     </div>
     <div id="money_board" ng-hide="custom">
-        <div id="rupee" ng-repeat="m in money_list_left" ng-class="{rupee_disabled: $index === selectedIndexLeft[$index]}">
+        <div id="rupee" ng-repeat="m in money_list_left" ng-class="{rupee_disabled: m.selected}">
             <img id="inr" src="assets/images/inr.png">
-            <span id="money">{{m}}</span>
+            <span id="money">{{m.money}}</span>
         </div>
     </div>
     <div id="money_board_2" ng-hide="custom">
-        <div id="rupee" ng-repeat="m in money_list_right" ng-class="{rupee_disabled: $index == selectedIndexRight[$index]}">
+        <div id="rupee" ng-repeat="m in money_list_right" ng-class="{rupee_disabled: m.selected}">
             <img id="inr" src="assets/images/inr.png">
-            <span id="money">{{m | number:0}}</span>
+            <span id="money">{{m.money | number:0}}</span>
         </div>
     </div>
     <div class="case-open case1 ng-enter" ng-class="{case_open_status:case_opened}" ng-show="caseOp">
@@ -44,6 +41,6 @@
                 <h4>{{turnsLeft}} cases to be selected</h4>
             </div>
             <span id="btnimg"><img src="assets/images/moneybtn.png" alt="money" ng-click="show_board()">
-      	   </div>
-      	   <div id="clear"></div>
-      </footer>
+        </div>
+        <div id="clear"></div>
+    </footer>
