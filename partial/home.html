@@ -1,9 +1,14 @@
 <div id="wrapper">
     <div id="main">
         <img id="dealgame" src="assets/images/dealGameTitleInitial.png" alt="Deal Or No Deal">
-        <form ng-submit="play()">
-            <input id="player" type="text" name="name" ng-model="player" required>
-            <button class="submit-btn"><img type="image" src="assets/images/playBtn.png">
+        <form ng-submit="play()" name="home" novalidate>
+            <input id="player" type="text" name="name" ng-model="name" required ng-pattern="/^([A-z])\w+$/">
+            <div class="invalid" role="alert">
+                <div ng-show="home.name.$error.required">*You did not enter a Name</div>
+                <div ng-show="home.name.$error.pattern">*Name Pattern is Inavlid.</div>
+
+            </div>
+            <button class="submit-btn" ng-disabled="home.name.$pristine || home.name.$dirty&&home.name.$invalid"><img type="image" src="assets/images/playBtn.png">
             </button>
         </form>
 
