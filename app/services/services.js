@@ -14,7 +14,7 @@ app.factory('gamePlay',function($http, $q){
 	Game.boxes = [];
 
 	Game.finalWinnings = 0;
-	Game.finalPossibleLoss = 0;
+	Game.finalPossibleLoss = null;
 	Game.totalPot = 0;
 	//to keep track of shuffled money
 	Game.moneyRandom = [];
@@ -118,7 +118,6 @@ app.factory('gamePlay',function($http, $q){
 
 	//get losses
 	Game.getLosses = function(amount){
-		console.log(Game.finalPossibleLoss);
 		return Game.finalPossibleLoss;
 	}
 
