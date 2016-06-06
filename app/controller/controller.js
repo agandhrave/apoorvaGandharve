@@ -6,7 +6,7 @@ app.controller('homeController', function($scope, $location, gamePlay) {
     }
 });
 
-app.controller('landingController', function($scope, $location, $timeout, gamePlay) {
+app.controller('landingController', function($scope, $animate, $location, $timeout, gamePlay) {
     var init = function() {
         gamePlay.isValidGame();
         $scope.playerName = gamePlay.getPlayerName();
@@ -46,7 +46,7 @@ app.controller('roundController', function($scope, $location, $animate, $timeout
         $scope.money_list_right = angular.copy(gamePlay.money_list).splice(13, 13);
         $scope.boxes = gamePlay.fetchValidBoxes();
         $scope.turnsLeft--;
-        if (($scope.turnsLeft) === 0) {
+        if (angular.equals($scope.turnsLeft,0)) {
 
             $location.path('/game/bankersOffer');
         }
@@ -80,7 +80,7 @@ app.controller('bankerController', function($scope, $location, $timeout, gamePla
         $location.path('/game/winnings');
     }
     $scope.nodeal = function() {
-        if (gamePlay.currentRound === 9) {
+        if (angular.equals(gamePlay.currentRound,9)) {
             swap_question();
         } else {
             $location.path('/game/rounds');
@@ -95,7 +95,6 @@ app.controller('bankerController', function($scope, $location, $timeout, gamePla
     $scope.swap_question_answer = function(finalBox,lostBox) {
         gamePlay.setWinnings(gamePlay.fetchBoxValue(finalBox));
         gamePlay.setLosses(gamePlay.fetchBoxValue(lostBox));
-        
         $location.path('/game/winnings');
     }
     init();
