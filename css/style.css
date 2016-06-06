@@ -7,10 +7,14 @@
 }
 body{
    /*Changed*/
+   font-size: 16px;
     width:100%;
 	margin:0 auto;
-    background-image:url("../assets/images/bg.png");
+    background-size: cover;
+    background-image:url("../assets/images/bg.png");\
+    background-repeat: no-repeat;
 }
+
 #dealgame{
 	width:100%;
 }
@@ -41,12 +45,12 @@ header img{
 }
 .invalid{
     margin: 0 auto;
-    font-size: 30px;
+    font-size: 2em;
     text-align: center;
     color: maroon;
 }
 #main {
-	padding: 18.5% 10%;
+	padding: 10% 10% 0;
      
 }
 #player {
@@ -56,7 +60,7 @@ header img{
     border: 3px solid black;
     margin: 2% 14%;
     background-color: #33b2ff;
-    font-size: 20px;
+    font-size: 1em;
     color:white;
     font-weight:bold;
 }
@@ -68,24 +72,26 @@ header img{
 	 min-height:430px;
 }
 #cases{
-    width: 73%;
-    margin: 0 auto;
-   // position:relative;
+    width: 75%;
+    margin: 4% auto;
 }
 #cases ul li{
     display: inline;
-    font-size: 36px;
+    font-size: 2em;
     text-align: center;
     vertical-align: middle;
 }
 /*changed*/
-#cases ul li:first-child {
-    margin: 15px 10px 15px 76px;
+#cases ul li:first-child,#cases ul li:nth-child(21) {
+    margin-left: 10%;
 }
-#cases ul li:nth-child(21){
-    margin: 15px 10px 15px 76px;
-}
+#cases ul li:nth-child(6),#cases ul li:last-child{
+    margin-right: 20%;
 
+}
+#cases ul li:nth-child(7),#cases ul li:nth-child(14){
+    margin-left: 3%;
+}
 .case1 {
     background: url("../assets/images/case.png") no-repeat;
     background-size: 100% 100%;
@@ -110,7 +116,7 @@ footer{
     float: right;
     color: black;
     font-weight: bold;
-    font-size: 36px;
+    font-size: 2em;
     background: url("../assets/images/case.png") no-repeat;
     background-size: 100% 100%;
     padding: 8% 15%;
@@ -122,12 +128,12 @@ footer{
 	padding:5px;
 }
 #player_name h1{
-    font-size: 30px;
+    font-size: 2em;
     font-weight: bold;
     text-align: center;
 }
 #rounds {
-	width:98%;
+    width:99%;
 	margin:0 auto;
    border:4px solid yellow;
    float:left;
@@ -143,7 +149,7 @@ footer{
 }
 
 #your,#case {
-	font-size: 26px;
+	font-size: 1.8em;
     width:26%;
    
 }
@@ -154,8 +160,7 @@ footer{
      clear:both;
 }
 #selected{
-   /* width: 65%;
-    float: right;*/
+
         float: left;
     margin: 0 40px;
 }
@@ -165,31 +170,29 @@ footer{
     animation: type 2s steps(600, end);
     color: white;
     display: block;
-    font-size: 45px;
-    /* width: 61%; */
+    font-size: 2.5em;
   
 }
 #selected h4{
-    font-size: 35px;
+    font-size: 2em;
 }
 @keyframes type{ 
   from { width: 0; }
   to {width: 500px;} 
 } 
 .caseselected {
-    margin: 20px;
+    margin: 4%;
   overflow: hidden;
   white-space:nowrap;
   animation: type 2s steps(100, end); 
 	color: white;
-    font-size: 45px;
-        /*width: 61%;*/
+    font-size: 2.5em;
     float: left;
 }
 #btnimg {
 	    float: right;
         cursor: pointer;
-        margin: 20px 52px;
+        margin: 3% 5% 0;
 }
 
 #money_board {
@@ -200,7 +203,6 @@ footer{
 	float: left;
     width: 20%;
     padding: 5px 0 5px 0;
-   // display:none;
 }
 #money_board_2 {
 	border:5px solid yellow;
@@ -218,10 +220,10 @@ footer{
 }
 
 #rupee{
+    background-size: cover;
 	background-image: url(../assets/images/amountBg.png);
 	background-repeat: no-repeat;
     width: 100%;
-    
     float: left;
 }
 #money_board .rupee_disabled,#money_board_2 .rupee_disabled{
@@ -229,7 +231,7 @@ footer{
 }
 #money {
 	float:right;
-	font-size: 32px;
+	font-size: 1.5em;
 	font-weight: bold;
 	margin: 0 22px 0 0;
 }
@@ -242,7 +244,7 @@ footer{
 }
 .winnings h4{
     text-align: center;
-    font-size: 35px;
+    font-size: 1.8em;
     font-weight: bold;
 }
 .winnings-money{
@@ -271,7 +273,7 @@ footer{
 .bankOffer h2{
     font-weight: bold;
     color: blue;
-    font-size: 35px;
+    font-size: 1.8em;
     text-align: center;
     margin: 4% 0 0 0;
 }
@@ -297,23 +299,23 @@ footer{
     text-align: center;
 }
 .rupee span{
-    font-size: 59px;
+    font-size: 3em;
     font-weight: bold;
 
 }
 .case-open{
-     padding: 5%;
+     padding: 7% 7%;
     margin: 10% 38%;
-    font-size: 75px;
+    font-size: 4em;
     text-align: center;
 }
 .case_open_status{
     background: url('../assets/images/case_open_status.png') no-repeat;
-    background-size: 100%;
-    font-size: 40px;
-        margin: 8% 0 0 35%;
-padding: 100px 0;
-    width: 300px;
+    background-size: cover;
+    font-size: 2.1em;
+    margin: 8% 0 0 35%;
+    padding: 10% 0%;
+    width: 310px;
     color: white;
     font-weight: bold;
       
@@ -374,3 +376,47 @@ canvas {
     top: 0;
     left: 0;
 }
+@media (max-width: 400px) {
+    body { font-size:90%;}
+}
+@media (max-width: 800px) {
+    body { font-size:100%;}
+}
+@media (min-width: 1100px) {
+    body { font-size:120%;}
+    .case_open_status{
+        width: 340px;
+    }
+}      
+@media (min-width: 1300px) {
+    body { font-size:150%;}
+    #inr,.rupee-image{
+        height: 90%;
+    }
+    .case_open_status{
+        width: 415px;
+    }
+} 
+@media (min-width: 1500px) {
+    body { font-size:190%;}
+    #inr{
+        height: 150%;
+    }
+    .rupee-image{
+        height: 45px;
+        width: 30px;
+    }
+    
+    .case_open_status{
+        width: 480px;
+    }
+} 
+@media (min-width: 1800px) {
+    body { font-size:240%;}
+    #inr{
+        margin-top: 4%;
+    }
+    .case_open_status{
+        width: 650px;
+    }
+} 
