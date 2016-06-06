@@ -238,7 +238,7 @@ footer{
     background:url('../assets/images/final_LabelBg.png') no-repeat;
     background-size: 500px;
     width: 50%;
-    padding: 8% 0;
+    padding: 15% 0 15%;
     margin: 50px auto;
 }
 .winnings h4{
@@ -253,6 +253,9 @@ footer{
      float: left;
     margin: 10px 0;
 
+}
+.winnings1{
+    text-align: left;
 }
 .bankOffer button{
         cursor: pointer;
