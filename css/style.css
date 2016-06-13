@@ -83,11 +83,11 @@
  }
  #cases ul li:nth-child(6),
  #cases ul li:last-child {
-     margin-right: 20%;
+     margin-right: 8%;
  }
  #cases ul li:nth-child(7),
  #cases ul li:nth-child(14) {
-     margin-left: 3%;
+     margin-left: 2%;
  }
  .case1 {
      background: url("../assets/images/case.png") no-repeat;
