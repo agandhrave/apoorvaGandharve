@@ -22,4 +22,7 @@ app.config(['$routeProvider', function($routeProvider) {
             templateUrl: "partial/winning.html",
             controller: "winController"
         })
+        .otherwise({
+            redirectTo: '/'
+        })  
 }]);
