@@ -1,5 +1,6 @@
  li {
      cursor: pointer;
+     display: inline;
  }
  .clearfix {
      clear: both;
@@ -12,13 +13,10 @@
      background-size: cover;
      background-image: url("../assets/images/bg.png");
  }
- #dealgame {
+ .dealgame {
      width: 100%;
  }
- #playG {
-     width: 36%;
- }
- #wrapper {
+ .wrapper {
      width: 100%;
      margin: 0 auto;
  }
@@ -44,10 +42,10 @@
      text-align: center;
      color: maroon;
  }
- #main {
+ .main {
      padding: 10% 10% 0;
  }
- #player {
+ .player {
      padding: 20px;
      width: 72%;
      border-radius: 15px;
@@ -58,37 +56,37 @@
      color: white;
      font-weight: bold;
  }
- #main a {
+ .main a {
      margin-left: 37%;
  }
- #maincont {
+ .maincont {
      width: 100%;
      min-height: 430px;
  }
- #cases {
+ .cases {
      width: 75%;
-     margin: 4% auto;
+     margin: 1% auto;
  }
- #cases ul li {
+ .cases ul li {
      display: inline;
-     font-size: 2em;
+     font-size: 1.5em;
      text-align: center;
      vertical-align: middle;
  }
  /*changed*/
  
- #cases ul li:first-child,
- #cases ul li:nth-child(21) {
-     margin-left: 10%;
+ .cases ul li:first-child,
+ .cases ul li:nth-child(21) {
+     margin-left: 6%;
  }
- #cases ul li:nth-child(6),
- #cases ul li:last-child {
-     margin-right: 8%;
+ .cases ul li:nth-child(6),
+ .cases ul li:last-child {
+     margin-right: 12%;
  }
- #cases ul li:nth-child(7),
- #cases ul li:nth-child(14) {
+/*.cases ul li:nth-child(7),
+.cases ul li:nth-child(14) {
      margin-left: 2%;
- }
+ }*/
  .case1 {
      background: url("../assets/images/case.png") no-repeat;
      background-size: 100% 100%;
@@ -107,91 +105,79 @@
  }
  .case_info {
      float: left;
-     margin: 3%;
+     margin: 2%;
  }
- #case_img {
+ .case_img {
      float: right;
      color: black;
      font-weight: bold;
-     font-size: 2em;
+     font-size: 1em;
      background: url("../assets/images/case.png") no-repeat;
      background-size: 100% 100%;
      padding: 8% 15%;
  }
- #player_name {
+ .player_name {
      width: 36%;
      margin: 1% 0 0 30%;
      background-color: #f6ef25;
      padding: 5px;
- }
- #player_name h1 {
      font-size: 2em;
      font-weight: bold;
      text-align: center;
  }
- #rounds {
+ .rounds {
      width: 99%;
      margin: 0 auto;
      border: 4px solid yellow;
      float: left;
  }
- #your_case {
+ .your_case {
      border-right: 4px solid yellow;
      color: white;
-     padding: 15px;
+     padding: 5px;
      width: 20%;
      float: left;
- }
- #your,
- #case {
      font-size: 1.8em;
-     width: 26%;
  }
- #money_btn {
+ .money_btn {
      float: right;
  }
- #clear {
-     clear: both;
+ .selected {
+    
  }
- #selected {
-     float: left;
-     margin: 0 40px;
+  @keyframes type {
+     from {
+         width: 0;
+     }
+     to {
+         width: 520px;
+     }
  }
- #selected h3,
- #selected h4 {
+ .selected {
      overflow: hidden;
      white-space: nowrap;
      animation: type 2s steps(600, end);
      color: white;
      display: block;
-     font-size: 2.5em;
+     float: left;
+     margin: 10px 10px;
+     font-size: 1.8em;
  }
- #selected h4 {
-     font-size: 2em;
- }
- @keyframes type {
-     from {
-         width: 0;
-     }
-     to {
-         width: 500px;
-     }
- }
+
  .caseselected {
-     margin: 4%;
+     margin: 1% 0;
      overflow: hidden;
      white-space: nowrap;
-     animation: type 2s steps(100, end);
      color: white;
-     font-size: 2.5em;
+     font-size: 1.5em;
      float: left;
  }
- #btnimg {
+ .btnimg {
      float: right;
      cursor: pointer;
-     margin: 3% 5% 0;
+     margin: 2% 5% 0;
  }
- #money_board {
+ .money_board_left {
      border: 5px solid yellow;
      position: absolute;
      top: 0;
@@ -200,7 +186,7 @@
      width: 20%;
      padding: 5px 0 5px 0;
  }
- #money_board_2 {
+ .money_board_right {
      border: 5px solid yellow;
      position: absolute;
      top: 0;
@@ -209,22 +195,23 @@
      width: 22%;
      padding: 5px 0 5px 0;
  }
- #inr {
+ .inr {
      margin: 7px;
      height: 23px;
- }
- #rupee {
-     background-size: cover;
-     background-image: url(../assets/images/amountBg.png);
-     background-repeat: no-repeat;
-     width: 100%;
      float: left;
  }
- #money_board .rupee_disabled,
- #money_board_2 .rupee_disabled {
-     background-image: url(../assets/images/amountOpenedBg.png);
+ .rupee {
+     background-size: cover;
+     background-image: url(../assets/images/amountBg.png) no-repeat;
+     width: 100%;
+     float: left;
+     text-align: center;
  }
- #money {
+ .money_board_left .rupee_disabled,
+ .money_board_right .rupee_disabled {
+     background-image: url(../assets/images/amountOpenedBg.png) no-repeat;
+ }
+ .money {
      float: right;
      font-size: 1.5em;
      font-weight: bold;
@@ -232,12 +219,12 @@
  }
  .winnings {
      background: url('../assets/images/final_LabelBg.png') no-repeat;
-     background-size: 500px;
+     background-size: cover;
      width: 50%;
      padding: 15% 0 15%;
      margin: 50px auto;
  }
- .winnings h4 {
+ .winnings p  {
      text-align: center;
      font-size: 1.8em;
      font-weight: bold;
@@ -259,13 +246,19 @@
      border: 3px solid black;
      background-color: yellow;
      width: 40%;
-     margin: 15% auto;
+     margin: 5% auto;
      border-radius: 25px;
  }
- .bankOffer h2 {
+ .bankOffer p {
      font-weight: bold;
      color: blue;
      font-size: 1.8em;
+     text-align: center;
+     margin: 4% 0 0 0;
+ }
+ .offer{
+     font-weight: bold;
+     font-size: 2em;
      text-align: center;
      margin: 4% 0 0 0;
  }
@@ -286,23 +279,19 @@
      width: 86%;
  }
  .rupee {
-     text-align: center;
- }
- .rupee span {
-     font-size: 3em;
-     font-weight: bold;
+     
  }
  .case-open {
      padding: 7% 7%;
-     margin: 10% 38%;
+     margin: 3% 38%;
      font-size: 4em;
      text-align: center;
  }
  .case_open_status {
      background: url('../assets/images/case_open_status.png') no-repeat;
      background-size: cover;
-     font-size: 2.1em;
-     margin: 8% 0 0 35%;
+     font-size: 2em;
+     margin: 3% 0 0 35%;
      padding: 10% 0%;
      width: 310px;
      color: white;
@@ -324,11 +313,6 @@
      font-size: 75px;
      text-align: center;
      cursor: pointer;
- }
- li {
-     cursor: pointer;
-     display: inline;
-     /*padding: 0 10px;*/
  }
  .text-center {
      text-align: center;
@@ -380,7 +364,7 @@
      body {
          font-size: 150%;
      }
-     #inr,
+     .inr,
      .rupee-image,
      .rupee img {
          height: 90%;
@@ -396,11 +380,10 @@
      body {
          font-size: 190%;
      }
-     #inr {
+     .inr {
          height: 150%;
      }
-     .rupee-image,
-     .rupee img {
+     .rupee-image{
          height: 45px;
          width: 50px;
      }
@@ -413,10 +396,10 @@
  }
  @media (min-width: 1800px) {
      body {
-         font-size: 240%;
+         font-size: 200%;
      }
-     #inr {
-         margin-top: 4%;
+     .inr {
+         margin-top: 0%;
      }
      .rupee img {
          width: 55px;
