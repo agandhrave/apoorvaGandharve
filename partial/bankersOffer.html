@@ -1,8 +1,8 @@
 <div class="bankOffer" ng-hide="swapQuestion">
-    <h2>Banker's Offer</h2>
+    <p>Banker's Offer</p>
     <div class="rupee">
         <img src="assets/images/inr.png" alt="rupaiya">
-        <span>{{offer}}</span>
+        <span class="offer">{{offer}}</span>
     </div>
     <button class="takeDeal" ng-click="deal()"><img src="assets/images/dealBtn.png" alt="deal">
     </button>
@@ -10,7 +10,7 @@
     </button>
 </div>
 <div class="swapQues" ng-show="swapQuestion">
-    <h1>SWAP?</h1>
+    <p>SWAP?</p>
     <div class="case1 swap-case" ng-click="swap_question_answer(playerBox,swapBox)" ng-bind="playerBox">
         {{playerBox}}
     </div>
