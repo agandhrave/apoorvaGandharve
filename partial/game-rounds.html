@@ -1,46 +1,47 @@
-<div id="maincont">
-    <div id="cases" ng-hide="caseOp">
+<div class="maincont">
+    <div class="cases" ng-hide="caseOp">
         <ul>
             <li ng-repeat="box in boxes" class="fade" ng-click="box_chose(box)">
                 <div class="case1">{{box}}</div>
             </li>
         </ul>
     </div>
-    <div id="money_board" ng-hide="custom">
-        <div id="rupee" ng-repeat="m in money_list_left" ng-class="{rupee_disabled: m.selected}">
-            <img id="inr" src="assets/images/inr.png">
-            <span id="money">{{m.money}}</span>
+    <div class="money_board_left" ng-hide="custom">
+        <div class="rupee" ng-repeat="m in money_list_left" ng-class="{rupee_disabled: m.selected}">
+            <img class="inr" src="assets/images/inr.png" alt="Ruppe Image">
+            <span class="money">{{m.money}}</span>
         </div>
     </div>
-    <div id="money_board_2" ng-hide="custom">
-        <div id="rupee" ng-repeat="m in money_list_right" ng-class="{rupee_disabled: m.selected}">
-            <img id="inr" src="assets/images/inr.png">
-            <span id="money">{{m.money | number:0}}</span>
+    <div class="money_board_right" ng-hide="custom">
+        <div class="rupee" ng-repeat="m in money_list_right" ng-class="{rupee_disabled: m.selected}" alt="Ruppe Image">
+            <img class="inr" src="assets/images/inr.png">
+            <span class="money">{{m.money | number:0}}</span>
         </div>
     </div>
     <div class="case-open case1 ng-enter" ng-class="{case_open_status:case_opened}" ng-show="caseOp">
-        <div>
-            <img src="assets/images/inr_case_open_status.png" ng-show="case_opened" class="rupee-image">{{box_opened}}
-        </div>
+ 
+            <img src="assets/images/inr_case_open_status.png" ng-show="case_opened" class="rupee-image" alt="Ruppe Image">{{box_opened|number:0}}   
+
     </div>
     <footer>
-        <div id="player_name">
-            <h1>{{playerName}}</h1>
+        <div class="player_name">
+            <p>{{playerName}}</p>
         </div>
 
-        <div id="rounds">
-            <div id="your_case">
+        <div class="rounds">
+            <div class="your_case">
                 <div class="case_info">
-                    <p id="your">Your</p>
-                    <p id="case">Case</p>
+                    <p class="your">Your</p>
+                    <p class="case">Case</p>
                 </div>
-                <div id="case_img">{{playerBox}}</div>
+                <div class="case_img">{{playerBox}}</div>
             </div>
-            <div id="selected">
-                <h3>Round - {{round}}</h3>
-                <h4>{{turnsLeft}} cases to be selected</h4>
+            <div class="selected">
+                <p>Round - {{round}}</p>
+                <p>{{turnsLeft}} cases to be selected</p>
             </div>
-            <span id="btnimg"><img src="assets/images/moneybtn.png" alt="money" ng-click="show_board()">
+            <span class="btnimg"><img src="assets/images/moneybtn.png" alt="money button" ng-click="show_board()">
+            <div class="clear"></div>
         </div>
-        <div id="clear"></div>
+        <div class="clear"></div>
     </footer>
