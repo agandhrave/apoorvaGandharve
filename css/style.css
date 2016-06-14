@@ -20,12 +20,10 @@
      width: 100%;
      margin: 0 auto;
  }
- header {
-     margin: 0 auto;
-     padding: 5px;
- }
  header img {
      display: block;
+     padding: 5px;
+     width: 30%;
      margin: 0 auto;
  }
  .submit-btn {
@@ -77,23 +75,34 @@
  
  .cases ul li:first-child,
  .cases ul li:nth-child(21) {
-     margin-left: 6%;
+     margin-left: 10%;
  }
  .cases ul li:nth-child(6),
  .cases ul li:last-child {
-     margin-right: 12%;
+     margin-right: 10%;
  }
-/*.cases ul li:nth-child(7),
+.cases ul li:nth-child(7),
 .cases ul li:nth-child(14) {
-     margin-left: 2%;
- }*/
+     margin-left: 5%;
+ }
  .case1 {
      background: url("../assets/images/case.png") no-repeat;
      background-size: 100% 100%;
      display: inline-block;
      /*changed*/
-     
-     width: 10.5%;
+     font-weight: bold;
+     width: 11%;
+     padding: 2% 0;
+     margin: 10px;
+ }
+
+  .case2 {
+     background: url("../assets/images/case_to_open.png") no-repeat;
+     background-size: 100% 100%;
+     display: inline-block;
+     /*changed*/
+     font-weight: bold;
+     width: 11%;
      padding: 2% 0;
      margin: 10px;
  }
@@ -118,10 +127,9 @@
  }
  .player_name {
      width: 36%;
-     margin: 1% 0 0 30%;
+     margin: 0 0 0 30%;
      background-color: #f6ef25;
-     padding: 5px;
-     font-size: 2em;
+     font-size: 1.6em;
      font-weight: bold;
      text-align: center;
  }
@@ -175,7 +183,7 @@
  .btnimg {
      float: right;
      cursor: pointer;
-     margin: 2% 5% 0;
+     margin: 3% 5% 0;
  }
  .money_board_left {
      border: 5px solid yellow;
@@ -196,20 +204,21 @@
      padding: 5px 0 5px 0;
  }
  .inr {
-     margin: 7px;
-     height: 23px;
+     margin: 2% 2% 0;
+     height: 1.2em;
      float: left;
  }
  .rupee {
+     background: url(../assets/images/amountBg.png) no-repeat;
      background-size: cover;
-     background-image: url(../assets/images/amountBg.png) no-repeat;
      width: 100%;
      float: left;
      text-align: center;
  }
  .money_board_left .rupee_disabled,
  .money_board_right .rupee_disabled {
-     background-image: url(../assets/images/amountOpenedBg.png) no-repeat;
+     background: url(../assets/images/amountOpenedBg.png) no-repeat;
+     background-size: cover;
  }
  .money {
      float: right;
@@ -290,15 +299,15 @@
  .case_open_status {
      background: url('../assets/images/case_open_status.png') no-repeat;
      background-size: cover;
-     font-size: 2em;
+     font-size: 2.3em;
      margin: 3% 0 0 35%;
-     padding: 10% 0%;
+     padding: 10% 0% 11%;
      width: 310px;
      color: white;
      font-weight: bold;
  }
  .rupee-image {
-     width: 20px;
+     height: .7em;
      padding: 0 10px;
  }
  .swapQues h1 {
@@ -342,14 +351,17 @@
      top: 0;
      left: 0;
  }
- @media (max-width: 400px) {
+ @media (min-width: 400px) {
      body {
          font-size: 90%;
      }
  }
- @media (max-width: 800px) {
+ @media (min-width: 800px) {
      body {
          font-size: 100%;
+     }
+     .case_open_status {
+          width: 350px;     
      }
  }
  @media (min-width: 1100px) {
@@ -357,20 +369,16 @@
          font-size: 120%;
      }
      .case_open_status {
-         width: 340px;
+         width: 390px;
      }
  }
  @media (min-width: 1300px) {
      body {
-         font-size: 150%;
+         font-size: 130%;
      }
-     .inr,
-     .rupee-image,
-     .rupee img {
-         height: 90%;
-     }
+
      .case_open_status {
-         width: 415px;
+         width: 430px;
      }
      .bankOffer button img {
          width: 100%;
@@ -378,14 +386,7 @@
  }
  @media (min-width: 1500px) {
      body {
-         font-size: 190%;
-     }
-     .inr {
-         height: 150%;
-     }
-     .rupee-image{
-         height: 45px;
-         width: 50px;
+         font-size: 150%;
      }
      .case_open_status {
          width: 480px;
@@ -396,19 +397,46 @@
  }
  @media (min-width: 1800px) {
      body {
-         font-size: 200%;
+         font-size: 180%;
      }
-     .inr {
-         margin-top: 0%;
+     
+     .case_open_status {
+         width: 570px;
      }
-     .rupee img {
-         width: 55px;
-         height: 70px;
+     .bankOffer button img {
+         width: 130%;
+     }
+ }
+@media (min-width: 2000px) {
+     body{
+          font-size: 200%;
      }
      .case_open_status {
-         width: 650px;
+         width: 640px;
      }
      .bankOffer button img {
          width: 150%;
      }
- }
+}
+
+@media (min-width: 2500px) {
+     body{
+          font-size: 290%;
+     }
+     .case_open_status {
+         width: 880px;
+     }
+     .bankOffer button img {
+         width: 200%;
+     }
+}
+.bank-rupee{
+     text-align: center;
+}
+.bank-rupee img{
+     height: 1.5em;
+     
+}
+.rupee-image-win{
+     height: 1.5em;
+}
