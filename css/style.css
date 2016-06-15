@@ -20,9 +20,8 @@
  }
   header img {
      display: block;
-     padding: 5px;
      width: 30%;
-     margin: 0 auto;
+     margin: 5px auto;
  }
 
  /*Home*/
@@ -63,7 +62,6 @@
  }
  .maincont {
      width: 100%;
-     min-height: 430px;
  }
  .cases {
      width: 75%;
@@ -89,9 +87,7 @@
 .cases ul li:nth-child(14) {
      margin-left: 5%;
  }
- .case1 {
-     background: url("../assets/images/case.png") no-repeat;
-     background-size: 100% 100%;
+ .case1,.case2{
      display: inline-block;
      /*changed*/
      font-weight: bold;
@@ -99,16 +95,16 @@
      padding: 2% 0;
      margin: 10px;
  }
+ .case1 {
+     background: url("../assets/images/case.png") no-repeat;  
+     background-size: 100% 100%;
+
+ }
 
 .case2 {
      background: url("../assets/images/case_to_open.png") no-repeat;
      background-size: 100% 100%;
-     display: inline-block;
-     /*changed*/
-     font-weight: bold;
-     width: 11%;
-     padding: 2% 0;
-     margin: 10px;
+
  }
  footer {
      position: fixed;
@@ -154,9 +150,6 @@
  .money_btn {
      float: right;
  }
- .selected {
-    
- }
   @keyframes type {
      from {
          width: 0;
@@ -189,23 +182,22 @@
      cursor: pointer;
      margin: 3% 5% 0;
  }
- .money_board_left {
+ .money_board_left, .money_board_right{
      border: 5px solid yellow;
      position: absolute;
      top: 0;
+     padding: 5px 0;
+
+ }
+ .money_board_left {
      left: 9px;
      float: left;
      width: 20%;
-     padding: 5px 0 5px 0;
  }
  .money_board_right {
-     border: 5px solid yellow;
-     position: absolute;
-     top: 0;
      right: 1%;
      float: right;
      width: 22%;
-     padding: 5px 0 5px 0;
  }
  .inr {
      margin: 2% 2% 0;
@@ -259,6 +251,15 @@
  .bankOffer button {
      cursor: pointer;
  }
+ .bank-rupee{
+     text-align: center;
+}
+.bank-rupee img{
+     height: 1.5em;
+}
+.rupee-image-win{
+     height: 1.5em;
+}
  .bankOffer {
      border: 3px solid black;
      background-color: yellow;
@@ -305,8 +306,8 @@
      background: url('../assets/images/case_open_status.png') no-repeat;
      background-size: cover;
      font-size: 2.3em;
-     margin: 3% 0 0 35%;
-     padding: 10% 0% 11%;
+     margin: 3% 0 0 32%;
+     padding: 10% 0% 13%;
      width: 310px;
      color: white;
      font-weight: bold;
@@ -436,13 +437,4 @@
          width: 200%;
      }
 }
-.bank-rupee{
-     text-align: center;
-}
-.bank-rupee img{
-     height: 1.5em;
-     
-}
-.rupee-image-win{
-     height: 1.5em;
-}
+
