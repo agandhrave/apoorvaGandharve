@@ -5,11 +5,11 @@
         <fieldset>
             <input class="player" type="text" name="name" ng-model="name" ng-required="true" ng-pattern="/^([A-z])\w+$/">
             <div class="invalid" role="alert">
-                <div ng-show="home.name.$error.required&&home.name.$touched">*Please enter a Name</div>
+                <div ng-show="home.name.$error.required && submitted">*Please enter a Name</div>
                 <div ng-show="home.name.$error.pattern">*Name Pattern is Inavlid.</div>
             </div>
         </fieldset>
-            <button class="submit-btn" ng-disabled="home.name.$pristine || home.name.$dirty&&home.name.$invalid"><img type="image" src="assets/images/playBtn.png">
+            <button class="submit-btn" ng-disabled="home.name.$pristine || home.name.$dirty&&home.name.$invalid"><img type="image" src="assets/images/playBtn.png" ng-click="submitted=true">
             </button>
 
         </form>
