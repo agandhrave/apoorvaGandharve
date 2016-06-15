@@ -1,5 +1,5 @@
-<div id="maincont">
-    <div id="cases">
+<div class="maincont">
+    <div class="cases">
         <ul>
             <li ng-repeat="box in boxes" ng-click="box_chose(box)">
                 <div class="case1">{{box}}</div>
@@ -8,21 +8,21 @@
     </div>
 </div>
 <footer>
-    <div id="player_name">
-        <h1>{{playerName}}</h1>
+    <div class="player_name">
+        <p>{{playerName}}</p>
     </div>
 
-    <div id="rounds">
-        <div id="your_case">
+    <div class="rounds">
+        <div class="your_case">
             <div class="case_info">
-                <p id="your">Your</p>
-                <p id="case">Case</p>
+                <p>Your</p>
+                <p>Case</p>
             </div>
-            <div id="case_img" ng-show="playerBox">{{playerBox}}</div>
+            <div class="case_img" ng-hide="showMsg">{{playerBox}}</div>
         </div>
-        <div id="selected">
-            <div class="caseselected ng-animate" >{{bottomMessage}}</div>
+        <div class="selected">
+            <div class="caseselected" >{{bottomMessage}}</div>
         </div>
     </div>
-    <div id="clear"></div>
+    <div class="clearfix"></div>
 </footer>

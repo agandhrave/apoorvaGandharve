@@ -1,15 +1,19 @@
-	 <div class="winnings">
-	 <h4>Congrats</h4>
-	 <h4>{{playerName}}</h4>
-	 <h4>You Win</h4>
-	 <div class="winnings-money">
-	  <img src="assets/images/inr.png" class="rupee-image"><h4>{{winnings}}</h4>
-	  </div>
-	  <div ng-show="losses" class="winnings1">
-	  <h4>You Lost</h4>
-	  <div class="winnings-money">
-	  <img src="assets/images/inr.png" class="rupee-image"><h4>{{losses}}</h4>
-	  </div>
-	  </div>
-<div class="clearfix"></div>
-<script src="js/fireworks.js"></script>
+<div class="winnings">
+    <p>Congrats</p>
+    <p>{{playerName}}</p>
+    <p>You Win</p>
+    <div class="winnings-money">
+        <img src="assets/images/inr.png" class="rupee-image-win" alt="Rupee Image">
+        <p>{{winnings}}</p>
+    </div>
+	<p ng-show="losses">You Lost</p>
+    <div ng-show="losses" class="winnings1">
+        
+        <div class="winnings-money">
+            <img src="assets/images/inr.png" class="rupee-image-win" alt="Rupee Image">
+            <p>{{losses}}</p>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+    <script src="js/fireworks.js"></script>

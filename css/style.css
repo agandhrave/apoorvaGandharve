@@ -1,5 +1,7 @@
+ /*global*/
  li {
      cursor: pointer;
+     display: inline;
  }
  .clearfix {
      clear: both;
@@ -12,23 +14,19 @@
      background-size: cover;
      background-image: url("../assets/images/bg.png");
  }
- #dealgame {
-     width: 100%;
- }
- #playG {
-     width: 36%;
- }
- #wrapper {
+ .wrapper {
      width: 100%;
      margin: 0 auto;
  }
- header {
-     margin: 0 auto;
-     padding: 5px;
- }
- header img {
+  header img {
      display: block;
-     margin: 0 auto;
+     width: 30%;
+     margin: 5px auto;
+ }
+
+ /*Home*/
+ .dealgame {
+     width: 100%;
  }
  .submit-btn {
      background: none;
@@ -44,10 +42,11 @@
      text-align: center;
      color: maroon;
  }
- #main {
+ /*Game Landing And Rounds*/
+ .main {
      padding: 10% 10% 0;
  }
- #player {
+ .player {
      padding: 20px;
      width: 72%;
      border-radius: 15px;
@@ -58,46 +57,54 @@
      color: white;
      font-weight: bold;
  }
- #main a {
+ .main a {
      margin-left: 37%;
  }
- #maincont {
+ .maincont {
      width: 100%;
-     min-height: 430px;
  }
- #cases {
+ .cases {
      width: 75%;
-     margin: 4% auto;
+     margin: 1% auto;
  }
- #cases ul li {
+ .cases ul li {
      display: inline;
-     font-size: 2em;
+     font-size: 1.5em;
      text-align: center;
      vertical-align: middle;
  }
  /*changed*/
  
- #cases ul li:first-child,
- #cases ul li:nth-child(21) {
+ .cases ul li:first-child,
+ .cases ul li:nth-child(21) {
      margin-left: 10%;
  }
- #cases ul li:nth-child(6),
- #cases ul li:last-child {
-     margin-right: 8%;
+ .cases ul li:nth-child(6),
+ .cases ul li:last-child {
+     margin-right: 10%;
  }
- #cases ul li:nth-child(7),
- #cases ul li:nth-child(14) {
-     margin-left: 2%;
+.cases ul li:nth-child(7),
+.cases ul li:nth-child(14) {
+     margin-left: 5%;
  }
- .case1 {
-     background: url("../assets/images/case.png") no-repeat;
-     background-size: 100% 100%;
+ .case1,.case2{
      display: inline-block;
      /*changed*/
-     
-     width: 10.5%;
+     font-weight: bold;
+     width: 11%;
      padding: 2% 0;
      margin: 10px;
+ }
+ .case1 {
+     background: url("../assets/images/case.png") no-repeat;  
+     background-size: 100% 100%;
+
+ }
+
+.case2 {
+     background: url("../assets/images/case_to_open.png") no-repeat;
+     background-size: 100% 100%;
+
  }
  footer {
      position: fixed;
@@ -107,170 +114,176 @@
  }
  .case_info {
      float: left;
-     margin: 3%;
+     margin: 2%;
  }
- #case_img {
+ .case_img {
      float: right;
      color: black;
      font-weight: bold;
-     font-size: 2em;
+     font-size: 1em;
      background: url("../assets/images/case.png") no-repeat;
      background-size: 100% 100%;
      padding: 8% 15%;
  }
- #player_name {
+ .player_name {
      width: 36%;
-     margin: 1% 0 0 30%;
+     margin: 0 0 0 30%;
      background-color: #f6ef25;
-     padding: 5px;
- }
- #player_name h1 {
-     font-size: 2em;
+     font-size: 1.6em;
      font-weight: bold;
      text-align: center;
  }
- #rounds {
+ .rounds {
      width: 99%;
      margin: 0 auto;
      border: 4px solid yellow;
      float: left;
  }
- #your_case {
+ .your_case {
      border-right: 4px solid yellow;
      color: white;
-     padding: 15px;
+     padding: 5px;
      width: 20%;
      float: left;
- }
- #your,
- #case {
      font-size: 1.8em;
-     width: 26%;
  }
- #money_btn {
+ .money_btn {
      float: right;
  }
- #clear {
-     clear: both;
+  @keyframes type {
+     from {
+         width: 0;
+     }
+     to {
+         width: 520px;
+     }
  }
- #selected {
-     float: left;
-     margin: 0 40px;
- }
- #selected h3,
- #selected h4 {
+ .selected {
      overflow: hidden;
      white-space: nowrap;
      animation: type 2s steps(600, end);
      color: white;
      display: block;
-     font-size: 2.5em;
+     float: left;
+     margin: 10px 10px;
+     font-size: 1.8em;
  }
- #selected h4 {
-     font-size: 2em;
- }
- @keyframes type {
-     from {
-         width: 0;
-     }
-     to {
-         width: 500px;
-     }
- }
+
  .caseselected {
-     margin: 4%;
+     margin: 1% 0;
      overflow: hidden;
      white-space: nowrap;
-     animation: type 2s steps(100, end);
      color: white;
-     font-size: 2.5em;
+     font-size: 1.5em;
      float: left;
  }
- #btnimg {
+ .btnimg {
      float: right;
      cursor: pointer;
      margin: 3% 5% 0;
  }
- #money_board {
+ .money_board_left, .money_board_right{
      border: 5px solid yellow;
      position: absolute;
      top: 0;
+     padding: 5px 0;
+
+ }
+ .money_board_left {
      left: 9px;
      float: left;
      width: 20%;
-     padding: 5px 0 5px 0;
  }
- #money_board_2 {
-     border: 5px solid yellow;
-     position: absolute;
-     top: 0;
+ .money_board_right {
      right: 1%;
      float: right;
      width: 22%;
-     padding: 5px 0 5px 0;
  }
- #inr {
-     margin: 7px;
-     height: 23px;
- }
- #rupee {
-     background-size: cover;
-     background-image: url(../assets/images/amountBg.png);
-     background-repeat: no-repeat;
-     width: 100%;
+ .inr {
+     margin: 2% 2% 0;
+     height: 1.2em;
      float: left;
  }
- #money_board .rupee_disabled,
- #money_board_2 .rupee_disabled {
-     background-image: url(../assets/images/amountOpenedBg.png);
+ .rupee {
+     background: url(../assets/images/amountBg.png) no-repeat;
+     background-size: cover;
+     width: 100%;
+     float: left;
+     text-align: center;
  }
- #money {
+ .money_board_left .rupee_disabled,
+ .money_board_right .rupee_disabled {
+     background: url(../assets/images/amountOpenedBg.png) no-repeat;
+     background-size: cover;
+ }
+ .money {
      float: right;
      font-size: 1.5em;
      font-weight: bold;
      margin: 0 22px 0 0;
  }
+
+ /*Wimnnings*/
  .winnings {
      background: url('../assets/images/final_LabelBg.png') no-repeat;
-     background-size: 500px;
+     background-size: cover;
      width: 50%;
      padding: 15% 0 15%;
-     margin: 50px auto;
+     margin: 0 auto;
  }
- .winnings h4 {
+ .winnings p  {
      text-align: center;
      font-size: 1.8em;
      font-weight: bold;
  }
  .winnings-money {
-     margin: 0 35% 0 30%;
+     margin-left: 40%;
+width:40%;
  }
  .winnings img {
      float: left;
      margin: 10px 0;
  }
- .winnings1 h4 {
-     text-align: left;
- }
+.winnings-money p{
+text-align: left;
+}
+
+ /*Bankers Offer*/
  .bankOffer button {
      cursor: pointer;
  }
+ .bank-rupee{
+     text-align: center;
+}
+.bank-rupee img{
+     height: 1.5em;
+}
+.rupee-image-win{
+     height: 1.5em;
+}
+
  .bankOffer {
      border: 3px solid black;
      background-color: yellow;
      width: 40%;
-     margin: 15% auto;
+     margin: 5% auto;
      border-radius: 25px;
  }
- .bankOffer h2 {
+ .bankOffer p {
      font-weight: bold;
      color: blue;
      font-size: 1.8em;
      text-align: center;
      margin: 4% 0 0 0;
  }
+ .offer{
+     font-weight: bold;
+     font-size: 2em;
+     text-align: center;
+     margin: 4% 0 0 0;
+ }
  .takeDeal {
-     margin: 0 20% 3%;
+     margin: 0 25%;
      background: none;
      border: none;
  }
@@ -278,41 +291,34 @@
      width: 86%;
  }
  .noDeal {
-     margin: 0 20% 5%;
+     margin: 0 25%;
      background: none;
      border: none;
  }
  .noDeal img {
      width: 86%;
  }
- .rupee {
-     text-align: center;
- }
- .rupee span {
-     font-size: 3em;
-     font-weight: bold;
- }
  .case-open {
      padding: 7% 7%;
-     margin: 10% 38%;
+     margin: 3% 38%;
      font-size: 4em;
      text-align: center;
  }
  .case_open_status {
      background: url('../assets/images/case_open_status.png') no-repeat;
      background-size: cover;
-     font-size: 2.1em;
-     margin: 8% 0 0 35%;
-     padding: 10% 0%;
+     font-size: 2.3em;
+     margin: 3% 0 0 35%;
+     padding: 10% 0% 11%;
      width: 310px;
      color: white;
      font-weight: bold;
  }
  .rupee-image {
-     width: 20px;
+     height: .7em;
      padding: 0 10px;
  }
- .swapQues h1 {
+ .swapQues p {
      margin-top: 10%;
      font-size: 50px;
      font-weight: bold;
@@ -324,11 +330,6 @@
      font-size: 75px;
      text-align: center;
      cursor: pointer;
- }
- li {
-     cursor: pointer;
-     display: inline;
-     /*padding: 0 10px;*/
  }
  .text-center {
      text-align: center;
@@ -358,14 +359,18 @@
      top: 0;
      left: 0;
  }
- @media (max-width: 400px) {
+ /*/Media Queries*/
+ @media (min-width: 400px) {
      body {
          font-size: 90%;
      }
  }
- @media (max-width: 800px) {
+ @media (min-width: 800px) {
      body {
          font-size: 100%;
+     }
+     .case_open_status {
+          width: 350px;     
      }
  }
  @media (min-width: 1100px) {
@@ -373,20 +378,16 @@
          font-size: 120%;
      }
      .case_open_status {
-         width: 340px;
+         width: 390px;
      }
  }
  @media (min-width: 1300px) {
      body {
-         font-size: 150%;
+         font-size: 130%;
      }
-     #inr,
-     .rupee-image,
-     .rupee img {
-         height: 90%;
-     }
+
      .case_open_status {
-         width: 415px;
+         width: 430px;
      }
      .bankOffer button img {
          width: 100%;
@@ -394,38 +395,48 @@
  }
  @media (min-width: 1500px) {
      body {
-         font-size: 190%;
-     }
-     #inr {
-         height: 150%;
-     }
-     .rupee-image,
-     .rupee img {
-         height: 45px;
-         width: 50px;
+         font-size: 150%;
      }
      .case_open_status {
          width: 480px;
      }
      .bankOffer button img {
-         width: 120%;
+         width: 100%;
      }
  }
  @media (min-width: 1800px) {
      body {
-         font-size: 240%;
+         font-size: 180%;
      }
-     #inr {
-         margin-top: 4%;
-     }
-     .rupee img {
-         width: 55px;
-         height: 70px;
-     }
+     
      .case_open_status {
-         width: 650px;
+         width: 570px;
      }
      .bankOffer button img {
-         width: 150%;
+         width: 120%;
      }
  }
+@media (min-width: 2000px) {
+     body{
+          font-size: 200%;
+     }
+     .case_open_status {
+         width: 640px;
+     }
+     .bankOffer button img {
+         width: 140%;
+     }
+}
+
+@media (min-width: 2500px) {
+     body{
+          font-size: 290%;
+     }
+     .case_open_status {
+         width: 880px;
+     }
+     .bankOffer button img {
+         width: 175%;
+     }
+}
+

@@ -1,14 +1,17 @@
-<div id="wrapper">
-    <div id="main">
-        <img id="dealgame" src="assets/images/dealGameTitleInitial.png" alt="Deal Or No Deal">
+<div class="wrapper">
+    <div class="main">
+        <img class="dealgame" src="assets/images/dealGameTitleInitial.png" alt="Deal Or No Deal">
         <form ng-submit="play()&&home.$valid" name="home" novalidate>
-            <input id="player" type="text" name="name" ng-model="name" ng-required="true" ng-pattern="/^([A-z])\w+$/">
+        <fieldset>
+            <input class="player" type="text" name="name" ng-model="name" ng-required="true" ng-pattern="/^([A-z])\w+$/">
             <div class="invalid" role="alert">
-                <div ng-show="home.name.$error.required && home.name.$touched">*Please enter a Name</div>
+                <div ng-show="home.name.$error.required && submitted">*Please enter a Name</div>
                 <div ng-show="home.name.$error.pattern">*Name Pattern is Inavlid.</div>
             </div>
-            <button class="submit-btn" ng-disabled="home.name.$pristine || home.name.$dirty&&home.name.$invalid"><img type="image" src="assets/images/playBtn.png">
+        </fieldset>
+            <button class="submit-btn" ng-disabled="home.name.$pristine || home.name.$dirty&&home.name.$invalid"><img type="image" src="assets/images/playBtn.png" ng-click="submitted=true">
             </button>
+
         </form>
 
     </div>
